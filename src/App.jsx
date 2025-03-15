@@ -1,20 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import LoginPage from './pages/LoginPage';
-import OrdersPage from './pages/OrdersPage';
-import ProductsPage from './pages/ProductsPage';
-import HomePage from './pages/HomePage';
-import './App.css';
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import OrdersPage from "./pages/OrdersPage";
+import { OrderProvider } from "./context/OrderContext"; // ✅
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard/*" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+    <OrderProvider> {/* ✅ Wrap everything */}
+      <Router basename="/assessment">
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/dashboard/products/:id" element={<ProductDetailPage />} />
+          <Route path="/dashboard/orders" element={<OrdersPage />} />
+        </Routes>
+      </Router>
+    </OrderProvider>
   );
 }
 

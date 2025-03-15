@@ -1,22 +1,21 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+// src/pages/Dashboard.jsx
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import HomePage from './HomePage';
 import OrdersPage from './OrdersPage';
 import ProductsPage from './ProductsPage';
-
 import './Dashboard.css';
 
-
 const Dashboard = () => {
-  const navigate = useNavigate();
-
   return (
-    <div className="flex h-screen">
+    <div className="dashboard-container">
       <Sidebar />
-      <div className="flex flex-col flex-1">
+      <div className="dashboard-content">
         <Header />
-        <div className="p-6 bg-gray-100 flex-1 overflow-y-auto">
+        <div className="dashboard-pages">
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="orders" element={<OrdersPage />} />
             <Route path="products" element={<ProductsPage />} />
           </Routes>

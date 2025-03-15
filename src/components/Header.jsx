@@ -1,12 +1,11 @@
 import './Header.css';
 
 const Header = () => {
-    return (
-      <div className="bg-white shadow p-4 text-xl font-semibold" >
-        Welcome to Admin Dashboard
-      </div>
-    );
-  };
-  
-  export default Header;
-  
+  return (
+    <header className="header">
+      <h1>E-Commerce Dashboard</h1>
+    </header>
+  );
+};
+
+export default Header;

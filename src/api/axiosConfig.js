@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:9000', // your Spring Boot backend
+const instance = axios.create({
+  baseURL: 'https://assessment-ecommerce.onrender.com', // Change to your backend URL
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-export default axiosInstance;
+export default instance;
